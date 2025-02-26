@@ -1,0 +1,26 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import UploadDocuments from "./pages/UploadDocuments";
+import CourseSearch from "./pages/CourseSearch";
+import AdminPanel from "./pages/AdminPanel";
+
+function App() {
+  return (
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/upload-documents" element={<UploadDocuments />} />
+          <Route path="/course-search" element={<CourseSearch />} />
+          <Route path="/admin-panel" element={<AdminPanel />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
+  );
+}
+
+export default App;
